@@ -30,7 +30,7 @@ let addressesnotlsapi = [];
 let addressescsv = [];
 let DLS = 8;
 let remarkIndex = 1;//CSV备注所在列偏移量
-let FileName = atob('ZWRnZXR1bm5lbA==');
+let FileName = atob('mone==');
 let BotToken;
 let ChatID; 
 let proxyhosts = [];
