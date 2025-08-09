@@ -1243,6 +1243,15 @@ async function 生成配置信息(userID, hostName, sub, UA, RproxyIP, _url, env
       '188.114.96.0/21',
       '190.93.240.0/21',
     ];
+    try {
+                const response = await fetch('https://raw.githubusercontent.com/cmliu/cmliu/main/CF-CIDR.txt');
+                if (response.ok) {
+                    const data = await response.text();
+                    cfips = await 整理(data);
+                }
+            } catch (error) {
+                console.log('获取 CF-CIDR 失败，使用默认值:', error);
+            }
 
     // 生成符合给定 CIDR 范围的随机 IP 地址
     function generateRandomIPFromCIDR(cidr) {
@@ -1833,4 +1842,5 @@ function 生成动态UUID(密钥) {
 
   return Promise.all([当前UUIDPromise, 上一个UUIDPromise, 到期时间字符串]);
 }
+
 
